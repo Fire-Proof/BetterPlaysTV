@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         BetterPlaysTV
 // @namespace    nickolaj.com
-// @version      0.1.0
+// @version      0.1.1
 // @description  Enhancements
 // @author       Nickolaj Jepsen
 // @match        *://plays.tv/*
