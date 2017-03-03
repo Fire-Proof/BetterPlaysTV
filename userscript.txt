@@ -1,0 +1,10 @@
+// ==UserScript==
+// @name         BetterPlaysTV
+// @namespace    nickolaj.com
+// @version      0.1.0
+// @description  Enhancements
+// @author       Nickolaj Jepsen
+// @match        *://plays.tv/*
+// @noframes
+// @grant        none
+// ==/UserScript==
