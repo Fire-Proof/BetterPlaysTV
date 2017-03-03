@@ -1,31 +1,33 @@
 {
-  "name": "webpack-userscript",
+  "name": "better-playstv",
   "version": "1.0.0",
-  "description": "Template for a Tempermonkey/Greasemonkey userscript using webpack",
+  "description": "A userscript to improve the plays.tv experience",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --port 8080"
+    "dev": "cross-env NODE_ENV=development node_modules/.bin/webpack-dev-server --port 8080",
+    "build:win": "call node_modules/.bin/webpack -p && type userscript-header.txt bundle.js > bundle.user.js && del bundle.js",
+    "build:unix": "node_modules/.bin/webpack -p; cat userscript-header.txt > bundle.user.js; cat bundle.js >> bundle.user.js; rm bundle.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Fire-Proof/webpack-userscript.git"
+    "url": "git+https://github.com/Fire-Proof/better-playstv.git"
   },
   "keywords": [
     "Tempermonkey",
     "Greasemonkey",
-    "Webpack",
-    "Template"
+    "Webpack"
   ],
   "author": "Fire-Proof",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Fire-Proof/webpack-userscript/issues"
+    "url": "https://github.com/Fire-Proof/better-playstv/issues"
   },
-  "homepage": "https://github.com/Fire-Proof/webpack-userscript#readme",
+  "homepage": "https://github.com/Fire-Proof/better-playstv#readme",
   "dependencies": {
     "babel": "^6.23.0",
     "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.22.0",
     "cross-env": "^3.1.4",
     "css-loader": "^0.23.1",
@@ -39,6 +41,7 @@
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.1"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
   }
 }
