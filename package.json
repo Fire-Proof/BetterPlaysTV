@@ -4,7 +4,8 @@
   "description": "Template for a Tempermonkey/Greasemonkey userscript using webpack",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --port 8080"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,10 @@
   },
   "homepage": "https://github.com/Fire-Proof/webpack-userscript#readme",
   "dependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-preset-es2015": "^6.22.0",
+    "cross-env": "^3.1.4",
     "css-loader": "^0.23.1",
     "exports-loader": "^0.6.3",
     "file-loader": "^0.8.5",
