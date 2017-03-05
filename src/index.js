@@ -8,7 +8,7 @@ const routes = {
     'http://plays.tv/home': home,
 };
 
-
+zzz
 function router() {
     if (window.location.href in routes) {
         routes[window.location.href]();
