@@ -1,4 +1,6 @@
 # BetterPlaysTV
+[![Build Status](https://jenkins.nickolaj.com/job/BetterPlaysTV/10//badge/icon)](https://jenkins.nickolaj.com/job/BetterPlaysTV/10/)
+
 A userscript to improve the plays.tv experience
 
 How to setup a development environment?
