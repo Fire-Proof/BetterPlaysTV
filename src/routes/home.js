@@ -14,20 +14,35 @@ const FilterFeed = class FilterFeed extends InfLoadWatch {
         ];
             // 'replay_by_follow'
             // 'replay_by_me'
+
+        this.initialVideoPlayed = false;
+
         this.feedAction(document.querySelectorAll('.feed-item'));
     }
+
 
     feedAction(feedItems) {
         feedItems.forEach((feedItem) => {
             const feedItemConf = JSON.parse(feedItem.dataset.conf);
             const feedItemReason = feedItemConf.reason;
+            const video = feedItem.querySelector('video');
             if (this.filteredReasons.includes(feedItemReason)) {
-                const video = feedItem.querySelector('video');
                 // Hack to make sure that the video is stopped before removing it
                 video.pause();
                 video.src = '';
                 video.load();
                 feedItem.remove();
+            } else if (!this.initialVideoPlayed) {
+                if (!video.paused && video.currentTime > 0) {
+                    this.initialVideoPlayed = true;
+                } else {
+                    this.initialVideoPlayed = true;
+                    
+                    console.log(this.initialVideoPlayed);
+                    video.play();
+                    feedItem.querySelector('.ui-player').classList.add('playing');
+                    feedItem.querySelector('.ui-player').setAttribute('init', true);
+                }
             }
         });
         window.scrollY += 1;
