@@ -1,5 +1,6 @@
 import home from './routes/home';
 import general from './routes/general';
+import { setValue } from './store';
 import '../style/index.scss';
 // var $ = require('jquery');
 
@@ -16,6 +17,8 @@ function router() {
 }
 
 (function () {
+    setValue('test', false);
+
     router();
 }());
 

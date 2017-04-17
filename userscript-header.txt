@@ -6,5 +6,8 @@
 // @author       Nickolaj Jepsen
 // @match        *://plays.tv/*
 // @noframes
-// @grant        none
+// @grant        GM_getValue
+// @grant        GM_setValue
+// @grant        GM_deleteValue
+// @grant        unsafeWindow
 // ==/UserScript==

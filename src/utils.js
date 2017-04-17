@@ -26,4 +26,22 @@ const InfLoadWatch = class InfLoadWatch {
     }
 };
 
-export { InfLoadWatch };
+const isUserscript = function isUserscript() {
+    try {
+        GM_info; // eslint-disable-line
+    } catch (error) {
+        return false;
+    }
+    return true;
+};
+
+const getWindow = function getWindow() {
+    try {
+        return unsafeWindow; // eslint-disable-line
+    } catch (error) {
+        return window;
+    }
+};
+
+
+export { InfLoadWatch, isUserscript, getWindow };

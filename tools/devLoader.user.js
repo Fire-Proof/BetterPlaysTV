@@ -7,6 +7,9 @@
 // @match        *://*/*
 // @noframes
 // @grant        GM_xmlhttpRequest
+// @grant        GM_getValue
+// @grant        GM_setValue
+// @grant        GM_deleteValue
 // @connect      localhost
 // ==/UserScript==
 

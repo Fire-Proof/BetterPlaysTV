@@ -1,4 +1,4 @@
-import { InfLoadWatch } from '../utils';
+import { InfLoadWatch, getWindow } from '../utils';
 
 const FilterFeed = class FilterFeed extends InfLoadWatch {
     constructor() {
@@ -11,6 +11,7 @@ const FilterFeed = class FilterFeed extends InfLoadWatch {
             'community_spotlight_custom_filter',
             'community_spotlight_metatag',
             'community_spotlight_hashtag',
+            'community_spotlight_custom_filter',
         ];
             // 'replay_by_follow'
             // 'replay_by_me'
@@ -34,7 +35,7 @@ const FilterFeed = class FilterFeed extends InfLoadWatch {
                 feedItem.remove();
             }
         });
-        window.scrollY += 1;
+        getWindow().scrollY += 1;
     }
 };
 
