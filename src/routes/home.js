@@ -32,17 +32,6 @@ const FilterFeed = class FilterFeed extends InfLoadWatch {
                 video.src = '';
                 video.load();
                 feedItem.remove();
-            } else if (!this.initialVideoPlayed) {
-                if (!video.paused && video.currentTime > 0) {
-                    this.initialVideoPlayed = true;
-                } else {
-                    this.initialVideoPlayed = true;
-                    
-                    console.log(this.initialVideoPlayed);
-                    video.play();
-                    feedItem.querySelector('.ui-player').classList.add('playing');
-                    feedItem.querySelector('.ui-player').setAttribute('init', true);
-                }
             }
         });
         window.scrollY += 1;

@@ -18,6 +18,25 @@ const DisableAutoReplay = class DisableAutoReplay extends InfLoadWatch {
     }
 };
 
+const DisableIntro = class DisableIntro extends InfLoadWatch {
+    constructor() {
+        super('.mod-vop-feed, .mod-feed');
+
+        this.feedAction(document.querySelectorAll('.mod-vop-feed, .feed-item'));
+    }
+
+    // eslint-disable-next-line class-methods-use-this
+    feedAction(feedItems) {
+        feedItems.forEach((feedItem) => {
+            const videos = feedItem.querySelectorAll('.ui-player video');
+            videos.forEach((video) => {
+                delete video.dataset.intro;
+            });
+        });
+    }
+};
+
+
 const disableSocialHovers = function disableSocialHovers() {
     require('../../style/disableSocialHovers.scss'); // eslint-disable-line global-require
 };
@@ -28,6 +47,8 @@ const expandedView = function expandedView() {
 
 export default function () {
     const disableAutoReplay = new DisableAutoReplay();
+    const disableIntro = new DisableIntro();
+    disableIntro.startWatch();
     disableAutoReplay.startWatch();
     disableSocialHovers();
     expandedView();
