@@ -75,3 +75,4 @@ typings/
 # Build 
 bundle.js
 bundle.user.js
+build/

@@ -32,10 +32,10 @@ const FilterFeed = class FilterFeed extends InfLoadWatch {
                 video.pause();
                 video.src = '';
                 video.load();
+                video.remove();
                 feedItem.remove();
             }
         });
-        getWindow().scrollY += 1;
     }
 };
 
