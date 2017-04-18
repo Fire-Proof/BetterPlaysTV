@@ -1,4 +1,5 @@
 import { InfLoadWatch } from '../utils';
+import store from '../store';
 
 const DisableAutoReplay = class DisableAutoReplay extends InfLoadWatch {
     constructor() {
@@ -46,10 +47,16 @@ const expandedView = function expandedView() {
 };
 
 export default function () {
-    const disableAutoReplay = new DisableAutoReplay();
-    const disableIntro = new DisableIntro();
-    disableIntro.startWatch();
-    disableAutoReplay.startWatch();
-    disableSocialHovers();
-    expandedView();
+    if (store.getValue('setting-disableAutoReplay-enable')) {
+        new DisableAutoReplay().startWatch();
+    }
+    if (store.getValue('setting-DisableIntro-enable')) {
+        new DisableIntro().startWatch();
+    }
+    if (store.getValue('setting-disableSocialHovers-enable')) {
+        disableSocialHovers();
+    }
+    if (store.getValue('setting-expandedView-enable')) {
+        expandedView();
+    }
 }

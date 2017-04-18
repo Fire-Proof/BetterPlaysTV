@@ -1,6 +1,7 @@
 import home from './routes/home';
 import general from './routes/general';
-import { setValue } from './store';
+import store from './store';
+import initSettingsMenu from './settings';
 import '../style/index.scss';
 // var $ = require('jquery');
 
@@ -14,11 +15,22 @@ function router() {
         routes[window.location.href]();
     }
     general();
+    initSettingsMenu();
+}
+
+function initStorage() {
+    store.setValue('setting-disableSocialHovers-enable', true);
+    store.setValue('setting-expandedView-enable', true);
+    store.setValue('setting-DisableIntro-enable', true);
+    store.setValue('setting-DisableAutoReplay-enable', true);
+    store.setValue('setting-filterFeed-enable', true);
+    store.setValue('init', true);
 }
 
 (function () {
-    setValue('test', false);
-
+    if (store.getValue('init') === null) {
+        initStorage();
+    }
     router();
 }());
 

@@ -1,4 +1,5 @@
-import { InfLoadWatch, getWindow } from '../utils';
+import { InfLoadWatch } from '../utils';
+import store from '../store';
 
 const FilterFeed = class FilterFeed extends InfLoadWatch {
     constructor() {
@@ -40,6 +41,8 @@ const FilterFeed = class FilterFeed extends InfLoadWatch {
 };
 
 export default function () {
-    const filterFeed = new FilterFeed();
-    filterFeed.startWatch();
+    if (store.getValue('setting-filterFeed-enable')) {
+        const filterFeed = new FilterFeed();
+        filterFeed.startWatch();
+    }
 }
